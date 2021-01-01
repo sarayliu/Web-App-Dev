@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>MySQL Clicker Game</h1>
+        <h2>Welcome, {{username}}</h2>
+        <img src="https://images.onerichs.com/CIP/preview/thumbnail/uscm/9840" alt="Cookie" onclick="doGet()">
+        <p>Click on the cookie to bake it</p>
+        <p id="table">Cookies: {{cookies}}</p>
+        <button type="button" onclick="buy_grandma()">Buy Grandma</button>
+        <p id="grandmas">You have {{boost}} grandmas</p>
+        <p>Cost: 25 Cookies; Boost: 5 more cookies per click per grandma</p>
+        <br>
+        <button type="button" onclick="reset()">Reset</button>
+        <button type="button" onclick="save()">Save to Scoreboard</button>
+        <h3 id="scoreboard_title">Scoreboard:</h3>
+        <p id="scoreboard" style="white-space: pre-line">{{s_array}}</p>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/cookie_clicker.js"></script>
+    </body>
+</html>

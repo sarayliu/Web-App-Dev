@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+    </head>
+
+    <body>
+        <div class="top-nav">
+            <ul class="top-horizontal">
+                <li class="top-menu"><a href="https://www.google.com/">Home</a></li>
+                <li class="top-menu"><a href="javascript:void(0)">About Me</a></li>
+                <li class="top-menu"><a href="javascript:void(0)">More</a></li>
+                <li class="top-menu"><a href="javascript:void(0)">Settings</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <div class="floating-element block">This is a floating element.</div>
+            <p>This paragraph does not float. 
+            This paragraph does not float. 
+            This paragraph does not float. 
+            This paragraph does not float. 
+            This paragraph does not float.
+            This paragraph does not float.
+            This paragraph does not float.
+            This paragraph does not float.
+            This paragraph does not float.
+            This paragraph does not float.
+            </p>
+            <img src="https://www.w3schools.com/w3css/img_lights.jpg" alt="Aurora">
+            <br>
+            <button type="button" id="clicked" onclick="myFunction()">Click me to change my color!</button>
+            <input type="text" id="in" name="name" required minlength="4" maxlength="8" size="10" onkeydown="keyDown()">
+            <h1>Output:</h1>
+            <p id="out"></p>
+            <script>
+                function myFunction() {
+                  document.getElementById("clicked").style.color = "magenta";
+                }
+                function keyDown() {
+                    var key = event.keyCode;
+                    if (key == 13) {
+                        var el = document.getElementById("in").value;
+                    // var val = el.value;
+                        el2 = document.getElementById("out");
+                        el2.innerHTML = el;
+                    }
+                }
+            </script>
+        </div>
+    </body>
+</html>

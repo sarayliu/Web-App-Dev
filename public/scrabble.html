@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Scrabble Word Finder</h1>
+        <p>Please fill out at least one field. Letter and individual letter position must be filled out together.</p>
+        <form id="take_words">
+            Word Bag:<br>
+            <input type="text" name="word_bag" maxlength="7">
+            <br>
+            Wildcard Letter?<br>
+            <input type="checkbox" name="wildcard" maxlength="1">
+            <br>
+            Letter:<br>
+            <input type="text" name="letter" maxlength="1">
+            <br>
+            Individual Letter Position:<br>
+            <input type="text" name="letter_pos">
+            <br><br>
+            <input type="submit" onclick="displayWords()" value="Submit">
+        </form>
+        
+        <div>
+            <p id="table"></p>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript">
+        // FUNCTION FOR RESPONDING TO BUTTON PRESS
+        // -- Take the order from the user
+        function displayWords() {
+            // SEND THE ORDER TO THE KITCHEN
+            event.preventDefault();
+            $.ajax({
+                url: "getwords",                      // goes to https://user.tjhsst.edu/pckosek/kitchen
+                type: "get",                         // use a 'get' type request
+                data:  $('#take_words').serialize(), //serialize form and pass to server
+                success: function(response) {
+    
+                    // THIS FUNCTION IS CALLED WHEN KITCHEN IS COMPLETE 
+                    // -- AND -- everthing went ok
+                    // update the display
+                    // (bring the order to the customer)
+                    r = document.getElementById("table");
+                    r.innerHTML = response;
+                },
+                error: function (stat, err) {
+                    // THIS FUNCTION IS CALLED WHEN KITCHEN IS COMPLETE 
+                    // -- BUT -- something went wrong (like invalid menu_item)
+                    // update the display
+                    // (bring the explanation to the customer)
+                    r = document.getElementById("table");
+                    r.innerHTML = 'something went wrong with the weather!';
+                }       
+                });
+            }
+                
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,141 @@
+funtion foo(ev) {
+console.log(ev.path[0].id);
+}
+
+o = document.getElementById('outline')
+o.children[0].onclick = foo
+do this in a for each loop, assigning an onclick function to each state
+
+var c = setinterval(callback, 500); every 500 milliseconds goes and does something
+clearInterval(c) stops the timer
+
+dont use alerts
+
+ajax:
+'/handle_voting'
+'/survey'
+id => js
+class => css 
+name => forms
+
+Scrabble:
+some boxes
+sort by letters
+        key
+
+$.ajax({
+
+data: {letters: [...]
+        first : false
+download enable.txt and move into directory     
+fs readfile has unsigned integer arrays
+chars = fs.readFileSync(__dirname + '//resources//enable1.txt').toString();
+'scrabble-vector'
+req.query
+go back to 4-d vectors --> use array.filter
+words = [aa, ab, abs ...]
+words.filter does the same as foreach, etc
+pass it a callback function that runs on every element of the array
+words.filter(function(curr, index) {
+    return true;
+}
+faster than foreach
+node_examples/_javascript_02B_object_oriented/18_filter.js
+if curr == this
+asking if current length is equal to 5 or 123.4
+make it look good, not just a bunch of letters
+    use handlebars
+
+client:
+$.ajax{
+    ...
+    data: {
+      letters: [a, c, f]
+      positions:
+    }
+}
+---------------
+words = ['aaa', 'abc', 'bbbb']
+function(req, res){
+
+words.filter(callback, 123.4)
+words.filter(callback, {
+                    letter: req.query.letter[0]
+                    position: req.query.position[0]
+                    })
+gets called three times because the function is called on every element of the array
+first time it's called: curr: aaa, index: 0, arr: [...]
+second time it's called: curr: abc, index: 1, arr: [...]
+third time it's called: curr: bbbb, index: 2, arr: [...]
+write one callback function that does two things: pick out words that start with the letter a
+and a second call to the callback function that picks words with b as the second letter
+anonymous object- something that you pass in that doesn't have a name
+letter: 'a',  --> letter: req.query.letter[0],
+position: 0   --> position: req.query.position[0]
+this.letter, this.position
+
+callback(curr, indx, arr) {
+
+SQL: Node examples 21 /01 commands
+By Wed Apr 10:
+code academy learn-sql checked end of class
+Module 1: Manipulations
+       2: Queries
+       3: Aggragate Functions
+       
+INSERT INTO users
+  set
+  id = 'harry'
+  house = (SELECTh_id from
+---------------
+UPDATE users
+
+https://www.npmjs.com/package/mysql
+Do as much as you can in procedures. Don't keep on going back and forth between sql and node.
+Use middleware; asynchronous is slow.
+Don't use pool.end() for live servers
+Results is going to be an array. Console.log results
+    The keys of the objects match the columns in sql
+x = ({},aaa={}).format(12, 13, 14) --> python
+Use ? in js
+....?menu.item=salsa; DROP TABLE STUDENTS --> escaping queries, sql injection
+https://www.npmjs.com/package/mysql#escaping-query-values
+2020ciorgove
+2019ssaxena/clicker
+2020ldiperna
+
+javascript21 --> sql9 conditional --> initialize.sql
+open source image libraries
+
+__dirname - path of the current directory
+path.join(__dirname ...,  ,) - don't have to do this
+
+_______
+|-----| <- SOURCE /w/u/p/p/sql/init_tables.sql
+|-----|
+|-----| <- SOURCE /w/u/p/p/sql/init_procedures.sql
+|-----|
+|-----|
+_______
+
+onclick = "doGet()"
+doGet()
+$ajax( {
+  url: 'cookie_writer'
+  data: {foo: 'bol', 'cookies': 12}
+  success: function
+
+var menu_item = req.query.menu_item; 
+var table_item = req.query.table_item;
+1: pool.query(query, args, callback)
+2: pool.query(query, args, callback2)
+
+1 - starts query, registers callback (but does not run it)
+runs query, then callback, so you shouldn't do the above because it might run query1, then query2, then callback
+solution: put whole second pool.query into first function, change e, r, f names
+pool.query('SELECT s_name FROM students WHERE id=?', menu_item, function (error, results, fields) {
+the question mark means go to menu_item; don't do string concatenation
+pool.query('SELECT s_name FROM students WHERE id=?', [menu_item, table_item], function (error, results, fields) {
+
+Socket is different from ajax because it can take data from multiple clients at the same time.
+https://www.html5canvastutorials.com/

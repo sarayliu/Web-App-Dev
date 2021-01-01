@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<!--MAIN CONTENT PAGE-->
+<div class="content">
+
+    <!--THE FORM THAT WILL GATHER THE INPUT-->
+    <form id="take_parameters">
+      <span>Latitude: </span>
+      <input type="number" id="inp_latitude" name="lat">
+      <span>Longitude: </span>
+      <input type="number" id="inp_longitude" name="long">
+    </form>
+
+    <!--THE BUTTON. WHEN PRESSED, WILL CALL placeOrder()-->
+    <button type="button" onclick="displayWeather()">Display Weather</button>
+
+    <!--A PLACEHOLDER THAT WILL BE POPULATED WITH CONTENT-->
+    <div>
+        <p id="table"></p>
+    </div>
+    
+</div>
+
+
+
+<!--LOAD JQUERY-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!--CUSTOM SCRIPT-->
+<script type="text/javascript">
+    // FUNCTION FOR RESPONDING TO BUTTON PRESS
+    // -- Take the order from the user
+    function displayWeather() {
+        // SEND THE ORDER TO THE KITCHEN
+       $.ajax({
+                url: "getweather",                      // goes to https://user.tjhsst.edu/pckosek/kitchen
+                type: "get",                         // use a 'get' type request
+                data:  $('#take_parameters').serialize(), //serialize form and pass to server
+                success: function(response) {
+    
+                    // THIS FUNCTION IS CALLED WHEN KITCHEN IS COMPLETE 
+                    // -- AND -- everthing went ok
+                    // update the display
+                    // (bring the order to the customer)
+                    r = document.getElementById("table");
+                    r.innerHTML = response;
+                },
+                error: function (stat, err) {
+                    // THIS FUNCTION IS CALLED WHEN KITCHEN IS COMPLETE 
+                    // -- BUT -- something went wrong (like invalid menu_item)
+                    // update the display
+                    // (bring the explanation to the customer)
+                    r = document.getElementById("table");
+                    r.innerHTML = 'something went wrong with the weather!';
+                }       
+            });
+    }
+            
+</script>
+
+
+</body>
+</html>
